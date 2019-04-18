@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Stable Marriage Problem with Gale-Shapley Algorithm
+Test-Case
 """
 
 import stableMarriage as sm
@@ -82,4 +83,4 @@ def testCapacity():
 #testFunction('accept')
 #testFunction('changeStatus')
 #testFunction('assign')
-testCapacity()
+#testCapacity()

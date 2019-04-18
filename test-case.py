@@ -52,8 +52,34 @@ def testFunction(func):
     elif func == 'assign':
         village.assign()
 
+def testCapacity():
+    '''
+    assigning 8 students to 4 different labs,
+    where each lab has a capacity of 2
+    '''
+    uni = sm.Participants()
+    labs = [('A', {'S':8, 'T':1, 'U':2, 'V':3, 'W':4, 'X':5, 'Y':6, 'Z':7}, 1),
+           ('B', {'S':8, 'T':1, 'U':2, 'V':3, 'W':4, 'X':5, 'Y':6, 'Z':7}, 2), 
+           ('C', {'S':8, 'T':1, 'U':2, 'V':3, 'W':4, 'X':5, 'Y':6, 'Z':7}, 3),
+           ('D', {'S':8, 'T':1, 'U':2, 'V':3, 'W':4, 'X':5, 'Y':6, 'Z':7}, 2)]
+    students = [('S', ['A', 'C', 'B', 'D']),
+                ('T', ['C', 'A', 'B', 'D']),
+                ('U', ['A', 'C', 'D', 'B']),
+                ('V', ['A', 'B', 'C', 'D']),
+                ('W', ['A', 'D', 'B', 'C']),
+                ('X', ['D', 'C', 'A', 'B']),
+                ('Y', ['A', 'D', 'C', 'B']),
+                ('Z', ['D', 'A', 'C', 'B'])]
+    for lab in labs:
+        uni.addPassive(lab[0], lab[1], lab[2])
+    for student in students:
+        uni.addActive(student[0], student[1])
+        
+    uni.assign()
+
 
 #testFunction('propose')
 #testFunction('accept')
 #testFunction('changeStatus')
-testFunction('assign')
+#testFunction('assign')
+testCapacity()

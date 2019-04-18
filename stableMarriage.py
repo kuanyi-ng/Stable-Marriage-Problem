@@ -177,7 +177,12 @@ class Passive(object):
 #            print(self.name, candidate_rank) # uncommend when debugging
             
             # pick Active 
-            for n in range(self.capacity):
+            if len(self.candidate) <= self.capacity: # when proposed Active is less or equal to capacity
+                numToPick = len(self.candidate)
+            else:
+                numToPick = self.capacity
+                    
+            for n in range(numToPick):
                 # get the index of choice in candidate
                 choice = min(candidate_rank)
                 choice_index = candidate_rank.index(choice)
